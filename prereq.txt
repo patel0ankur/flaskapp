@@ -1,0 +1,53 @@
+openssl rand -base64 12 | docker secret create db_root_password -
+openssl rand -base64 12 | docker secret create db_dba_password -
+
+
+create database testdb;
+grant all on testdb.* to 'testuser' identified by 'password';
+
+
+use testdb;
+create table customers (customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, first_name TEXT, last_name TEXT);
+
+
+sudo useradd jenkins -U -s /bin/bash
+sudo passwd jenkins
+jenkins        ALL=(ALL)       NOPASSWD: ALL
+ssh-keygen -t rsa
+cat /var/lib/jenkins/.ssh/id_rsa.pub | ssh jenkins@172.28.128.6 "mkdir -p /home/jenkins/.ssh && cat >>  /home/jenkins/.ssh/authorized_keys" 
+chmod 700 /home/jenkins/.ssh 
+chmod 640 /home/jenkins/.ssh/authorized_keys 
+
+172.28.128.6 manager
+172.28.128.7 jenkins
+172.28.128.8 worker01 
+
+yum install java-1.8.0-openjdk
+yum install java-1.8.0-openjdk-devel
+pip install --upgrade pip
+sudo yum install python-pip
+yum install python-devel mysql-devel
+pip install Flask-MySQLdb
+pip install flask
+
+
+docker login --username=ankurpatel
+docker tag 740f0a8b5bf6 ankurpatel/flaskapp:latest
+
+docker push ankurpatel/flaskapp
+
+
+docker service logs -f flask_app
+
+
+docker stack ls
+
+docker stack deploy --compose-file docker-compose.yml flask
+
+Login to Jenkins 
+
+Goto Manage Jenkins >> Configure Global Security >> CSRF Protection
+
+Disable “Prevent Cross Site Request Forgery exploits”
+
+Click on Save
