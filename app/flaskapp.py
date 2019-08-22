@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['MYSQL_HOST'] = HOST
 app.config['MYSQL_USER'] = USER
 app.config['MYSQL_PASSWORD'] = PASSWORD
-#app.config['MYSQL_DB'] = 'knights'
+
 
 
 
