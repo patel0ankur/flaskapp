@@ -9,5 +9,5 @@ CREATE TABLE favorite_colors (
 INSERT INTO favorite_colors
   (name, color)
 VALUES
-  ('Lancelot', 'blue'),
+  ('Lancelot', 'RED'),
   ('Galahad', 'yellow');
