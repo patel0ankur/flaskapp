@@ -1,10 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('hello') {
+    stage('Build Docker Image') {
       agent any
       steps {
-        echo 'hello'
+        sh '''cd app/
+
+docker build -t ankurpatel/flaskapp:latest .
+
+'''
       }
     }
   }
