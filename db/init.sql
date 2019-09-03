@@ -1,13 +1,18 @@
-CREATE DATABASE knights;
-use knights;
+CREATE DATABASE nflteams;
+use nflteams;
 
-CREATE TABLE favorite_colors (
+CREATE TABLE nflteams.team_colors (
   name VARCHAR(20),
-  color VARCHAR(10)
+  color VARCHAR(20)
 );
 
-INSERT INTO favorite_colors
+INSERT INTO nflteams.team_colors
   (name, color)
 VALUES
-  ('Lancelot', 'RED'),
-  ('Galahad', 'yellow');
+  ('Chicago Bears', 'navy blue & orange'),
+  ('Green Bay Packers', 'bay green & cheese gold'),
+  ('Minnesota Vikings', 'purple, gold & white'),
+  ('Detroit Lions', 'Honolulu blue, silver, black & white'),
+  ('Atlanta Falcons', 'black, red & silver'),
+  ('New Orleans Saints', 'black & gold'),
+  ('Arizona Cardinals', 'cardinal red, black & white');

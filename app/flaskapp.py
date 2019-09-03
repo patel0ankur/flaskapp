@@ -2,17 +2,16 @@ from flask import Flask
 from flask_mysqldb import MySQL
 import os
 
-USER = os.environ.get('DB_USER')
-PASSWORD = os.environ.get('DB_PASSWORD')
+
 HOST = 'localhost'
 
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = HOST
-app.config['MYSQL_USER'] = USER
-app.config['MYSQL_PASSWORD'] = PASSWORD
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'root'
 
-#connecting 
+#connecting
 
 
 mysql = MySQL(app)
@@ -21,7 +20,7 @@ mysql = MySQL(app)
 @app.route('/')
 def users():
     cur = mysql.connection.cursor()
-    cur.execute('''SELECT name FROM knights.favorite_colors''')
+    cur.execute('''SELECT * FROM nflteams.team_colors''')
     rv = cur.fetchall()
     return str(rv)
 
