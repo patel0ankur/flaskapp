@@ -20,7 +20,7 @@ mysql = MySQL(app)
 @app.route('/')
 def users():
     cur = mysql.connection.cursor()
-    cur.execute('''SELECT name FROM nflteams.team_colors''')
+    cur.execute('''SELECT * FROM nflteams.team_colors''')
     rv = cur.fetchall()
     return str(rv)
 
