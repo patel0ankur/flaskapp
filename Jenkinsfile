@@ -4,8 +4,7 @@ pipeline {
     stage('Build Docker Image') {
       agent any
       steps {
-        sh '''#cd app/
-ls 
+        sh '''ls 
 sudo docker build -t ankurpatel/flaskapp:latest app/
 #sudo docker build -t ankurpatel/flaskapp:latest .
 
