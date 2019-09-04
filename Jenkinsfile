@@ -6,7 +6,7 @@ pipeline {
       steps {
         sh '''cd app/
 
-docker build -t ankurpatel/flaskapp:latest .
+sudo docker build -t ankurpatel/flaskapp:latest .
 
 '''
       }
