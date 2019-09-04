@@ -8,6 +8,8 @@ pipeline {
 
 sudo docker build -t ankurpatel/flaskapp:latest .
 
+docker images
+
 '''
       }
     }
