@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Build Docker Image') {
+    stage('Build Image') {
       agent any
       steps {
         sh '''ls 
@@ -13,9 +13,14 @@ sudo docker images
 '''
       }
     }
-    stage('Docker Push Image') {
+    stage('Push Image') {
       steps {
         sh 'sudo docker push ankurpatel/flaskapp:latest'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'sudo docker stack deploy -c docker_stack.yml flaskapp'
       }
     }
   }
