@@ -6,10 +6,10 @@ pipeline {
       steps {
         sh '''#cd app/
 ls 
-
+sudo docker build -t ankurpatel/flaskapp:latest app/
 #sudo docker build -t ankurpatel/flaskapp:latest .
 
-#sudo docker images
+sudo docker images
 
 '''
       }
