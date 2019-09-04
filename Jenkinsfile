@@ -15,7 +15,7 @@ sudo docker images
     }
     stage('Docker Push Image') {
       steps {
-        sh 'docker push ankurpatel/flaskapp:latest'
+        sh 'sudo docker push ankurpatel/flaskapp:latest'
       }
     }
   }
