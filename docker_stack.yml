@@ -22,30 +22,13 @@ services:
     ports:
       - "5000:5000"
     deploy:
-      replicas: 2
+      replicas: 3
       restart_policy:
         condition: on-failure
       placement:
         constraints: [node.role == worker]
     environment:
       - FLASK_ENV=dev
-    networks:
-      - flasknet
-    healthcheck:
-      test: curl --fail http://localhost:5000/ping || exit 1
-      interval: 10s
-      timeout: 2s
-      retries: 5
-
-  visualizer:
-    image: dockersamples/visualizer:latest
-    ports:
-      - 8081:8081
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    deploy:
-      placement:
-        constraints: [node.role == manager]
     networks:
       - flasknet
 
