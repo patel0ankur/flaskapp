@@ -20,9 +20,7 @@ sudo docker images
     }
     stage('Deploy') {
       steps {
-        withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/') {
         sh 'sudo docker stack deploy -c docker_stack.yml flaskapp'
-      }
       }
     }
   }
