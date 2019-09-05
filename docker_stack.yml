@@ -11,14 +11,14 @@ services:
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
     deploy:
-      replicas: 1
+      replicas: 2
       update_config:
-        parallelism: 2
+        parallelism: 1
         delay: 10s
       restart_policy:
         condition: on-failure
       placement:
-        constraints: [node.role == manager]
+        constraints: [node.role == worker]
       resources:
         limits:
           cpus: '0.50'
