@@ -19,6 +19,13 @@ services:
         condition: on-failure
       placement:
         constraints: [node.role == manager]
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
     networks:
       - flasknet
 
@@ -36,6 +43,13 @@ services:
         condition: on-failure
       placement:
         constraints: [node.role == worker]
+      resources:
+        limits:
+          cpus: '1.50'
+          memory: 1000M
+        reservations:
+          cpus: '0.50'
+          memory: 512M
     environment:
       - FLASK_ENV=dev
     networks:
