@@ -16,10 +16,8 @@ sudo docker build -t ankurpatel/flaskapp:latest app/
     }
     stage('Deploy') {
       steps {
-
         sh 'sudo docker stack deploy -c docker_stack.yml flaskapp'
       }
-
     }
   }
 }
