@@ -1,7 +1,9 @@
 version: "3.7"
 services:
+
   db:
-    image:  mysql:latest
+    image:  mysql
+    command: --default-authentication-plugin=mysql_native_password
     ports:
       - "3306:3306"
     environment:
@@ -10,6 +12,11 @@ services:
       - ./db:/docker-entrypoint-initdb.d/:ro
     deploy:
       replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
       placement:
         constraints: [node.role == manager]
     networks:
@@ -23,6 +30,8 @@ services:
       - "5000:5000"
     deploy:
       replicas: 3
+      update_config:
+        parallelism: 2
       restart_policy:
         condition: on-failure
       placement:
