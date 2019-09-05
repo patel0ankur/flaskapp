@@ -2,8 +2,8 @@ CREATE DATABASE nflteams;
 use nflteams;
 
 CREATE TABLE nflteams.team_colors (
-  name VARCHAR(20),
-  color VARCHAR(20)
+  name VARCHAR(50),
+  color VARCHAR(50)
 );
 
 INSERT INTO nflteams.team_colors
