@@ -2,11 +2,21 @@ pipeline {
   agent any
   stages {
     stage('Build Image') {
-      agent any
-      steps {
-        sh '''ls
+      parallel {
+        stage('Build Image') {
+          agent any
+          steps {
+            sh '''ls
 sudo docker build -t ankurpatel/flaskapp:latest app/
 '''
+          }
+        }
+        stage('Build DB Image') {
+          steps {
+            sh '''ls
+sudo docker build -t ankurpatel/flaskdb:latest db/'''
+          }
+        }
       }
     }
     stage('Push Image') {
