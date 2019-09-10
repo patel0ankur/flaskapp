@@ -32,7 +32,7 @@ sudo docker push ankurpatel/flaskdb:latest'''
     }
     stage('Test Website') {
       steps {
-        sh 'curl http://127.0.0.1:5000/'
+        sh 'curl -Is http://127.0.0.1:5000 | head -n1'
       }
     }
   }
