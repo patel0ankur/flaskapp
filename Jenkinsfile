@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build Image') {
       parallel {
-        stage('Build Image') {
+        stage('Build App Image') {
           agent any
           steps {
             sh '''ls
