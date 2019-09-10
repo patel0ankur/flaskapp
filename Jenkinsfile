@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Build Image') {
+    stage('Build Images') {
       parallel {
         stage('Build App Image') {
           agent any
@@ -19,7 +19,7 @@ sudo docker build -t ankurpatel/flaskdb:latest db/'''
         }
       }
     }
-    stage('Push Image') {
+    stage('Push Images') {
       steps {
         sh '''sudo docker push ankurpatel/flaskapp:latest
 sudo docker push ankurpatel/flaskdb:latest'''
@@ -30,7 +30,7 @@ sudo docker push ankurpatel/flaskdb:latest'''
         sh 'sudo docker stack deploy -c docker_stack.yml flaskapp'
       }
     }
-    stage('Test') {
+    stage('Test Website') {
       steps {
         sh 'curl http://127.0.0.1:5000/'
       }
