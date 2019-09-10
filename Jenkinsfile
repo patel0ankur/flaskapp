@@ -21,7 +21,8 @@ sudo docker build -t ankurpatel/flaskdb:latest db/'''
     }
     stage('Push Image') {
       steps {
-        sh 'sudo docker push ankurpatel/flaskapp:latest'
+        sh '''sudo docker push ankurpatel/flaskapp:latest
+sudo docker push ankurpatel/db:latest'''
       }
     }
     stage('Deploy') {
