@@ -30,5 +30,8 @@ sudo docker push ankurpatel/flaskdb:latest'''
         sh 'sudo docker stack deploy -c docker_stack.yml flaskapp'
       }
     }
+    stage('Test'){
+      sh 'curl http://127.0.0.1:5000'
+    }
   }
 }
