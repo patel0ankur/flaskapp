@@ -15,4 +15,5 @@ VALUES
   ('Detroit Lions', 'Honolulu blue, silver, black & white'),
   ('Atlanta Falcons', 'black, red & silver'),
   ('New Orleans Saints', 'black & gold'),
+  ('Denver Broncos', 'Orange & Dark Blue'),
   ('Arizona Cardinals', 'cardinal red, black & white');
